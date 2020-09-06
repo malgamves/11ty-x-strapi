@@ -1,0 +1,33 @@
+---
+pagination:
+  data: blogposts
+  size: 1
+  alias: blogpost
+permalink: blog/{{ blogpost.slug }}/index.html
+---
+{% extends "layouts/base.njk" %}
+{% set htmlTitle = blogpost.title %}
+
+{% block content %}
+  {# blogpost #}
+
+  <h1>{{ blogpost.title }}</h1>
+  <p>{{ blogpost.intro }}</p>
+  {{ blogpost.body | safe }}
+
+  {# related blogposts #}
+  {% if blogpost.relatedBlogs|length %}
+    <h2>You might also like</h2>
+    <ul>
+    {% for item in blogpost.relatedBlogs %}
+      {% for post in blogposts %}
+        {% if post.id == item.id %}
+          <li>
+            <a href="/blog/{{ post.slug }}">{{ post.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
