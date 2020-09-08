@@ -44,7 +44,7 @@ async function getAllBlogposts() {
       // store the JSON response when promise resolves
       const response = await data.json();
 
-      // handle DatoCMS errors
+      // handle CMS errors
       if (response.errors) {
         let errors = response.errors;
         errors.map((error) => {
