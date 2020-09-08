@@ -1,4 +1,6 @@
 ---
+layout: layouts/home.njk
+templateClass: tmpl-post
 eleventyNavigation:
   key: Blog
   order: 4
@@ -8,11 +10,11 @@ pagination:
 permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html
 ---
 
-{% extends "layouts/base.njk" %}
+{% include "postslist.njk" %}
 {% set htmlTitle = item.title %}
 
 {% block content %}
-  <h1>Blogposts</h1>
+  <h2>Unfiltered, raw and probably full of typos</h2>
 
   {# loop through paginated item #}
   {% for item in pagination.items %}

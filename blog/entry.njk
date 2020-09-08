@@ -1,11 +1,13 @@
 ---
+layout: layouts/home.njk
+templateClass: tmpl-post
 pagination:
   data: blogposts
   size: 1
   alias: blogpost
 permalink: blog/{{ blogpost.slug }}/index.html
 ---
-{% extends "layouts/base.njk" %}
+{% include "postslist.njk" %}
 {% set htmlTitle = blogpost.title %}
 
 {% block content %}
