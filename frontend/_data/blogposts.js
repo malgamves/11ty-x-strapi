@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-// get blogposts
+// function to get blogposts
 async function getAllBlogposts() {
   // max number of records to fetch per query
   const recordsPerQuery = 100;
@@ -18,7 +18,7 @@ async function getAllBlogposts() {
   while (makeNewQuery) {
     try {
       // initiate fetch
-      const data = await fetch("https://okaaaaaaayyy.herokuapp.com/graphql", {
+      const data = await fetch("http://localhost:1337/graphql", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,16 +26,13 @@ async function getAllBlogposts() {
         },
         body: JSON.stringify({
           query: `{
-              blogs {
+              articles {
               id
-              Title
-              Description
-              Published
-              Body
-              author {
-                username
-              }
-              Slug
+              title
+              content
+              published_at
+              author
+              slug
             }
           }`,
         }),
@@ -50,17 +47,17 @@ async function getAllBlogposts() {
         errors.map((error) => {
           console.log(error.message);
         });
-        throw new Error("Aborting: CMS errors");
+        throw new Error("Houston... We have a CMS problem");
       }
 
       // update blogpost array with the data from the JSON response
-      blogposts = blogposts.concat(response.data.blogs);
+      blogposts = blogposts.concat(response.data.articles);
 
       // prepare for next query
       recordsToSkip += recordsPerQuery;
 
       // stop querying if we are getting back less than the records we fetch per query
-      if (response.data.blogs.length < recordsPerQuery) {
+      if (response.data.articles.length < recordsPerQuery) {
         makeNewQuery = false;
       }
     } catch (error) {
@@ -72,10 +69,11 @@ async function getAllBlogposts() {
   const blogpostsFormatted = blogposts.map((item) => {
     return {
       id: item.id,
-      title: item.Title,
-      slug: item.Slug,
-      summary: item.Description,
-      body: item.Body,
+      title: item.title,
+      slug: item.slug,
+      body: item.content,
+      author: item.author,
+      date: item.published_at       
     };
   });
 

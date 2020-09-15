@@ -14,8 +14,7 @@ permalink: blog/{{ blogpost.slug }}/index.html
   {# blogpost #}
 
   <h1>{{ blogpost.title }}</h1>
-  <p>{{ blogpost.intro }}</p>
-  {{ blogpost.body | safe }}
+{{ blogpost.body | safe }}
 
   {# related blogposts #}
   {% if blogpost.relatedBlogs|length %}

@@ -5,11 +5,14 @@ eleventyNavigation:
   order: 1
 ---
 
-<h1>Latest 3 Posts</h1>
-<h2> Hello Friends </h2>
+<h1>Your Blog Name Here</h1>
+<h2> 11ty x Strapi </h2>
 
-{% set postslist = collections.posts | head(-3) %}
-{% set postslistCounter = collections.posts | length %}
-{% include "postslist.njk" %}
+<p> "For a long time, we just went along with what we thought was right.
+We used what everyone used. Then we found our stack, a stack that worked,
+a stack that we loved, a stack that we could rely on. Life hasn't been the 
+same since then."
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+- Unknown <p>
+
+<p>Use the navbar to navigate between pages.</p>
