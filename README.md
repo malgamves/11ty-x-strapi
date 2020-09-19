@@ -23,6 +23,7 @@ This application helps you get started building a blog website with a few other 
 - A home page :`/`
 - An about me page :`/about`
 - A blog page :`/blog`
+- A blog post page `:/blog/:Slug`
 
 ## Getting Started
 
@@ -60,8 +61,7 @@ Then run `yarn develop` to start your backend server.
 
 ### 11ty
 
-[Add Deets]
-
+Run `eleventy` as your build command and serve the `_site` directory. This is possible in Static Hosting providers like [Netlify](https://www.netlify.com/) and [Vercel](https://vercel.com/)
 
 For your backend, Strapi has numerous options in it's [deployment guide](https://strapi.io/documentation/3.0.0-beta.x/getting-started/deployment.html).
 
