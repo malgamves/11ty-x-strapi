@@ -1,8 +1,8 @@
-# Strapi x 11ty - A Simple Blog Site using [11ty](https://www.11ty.dev/), built with Strapi 
+# Strapi x 11ty - A simple Blog site using [11ty](https://www.11ty.dev/), built with Strapi 
 
 This application helps you get started building a blog website with a few other pages. Feel free to fork, edit and customise it for your own use.
 
-![Screenshot]()
+![Screenshot](https://github.com/malgamves/11ty-x-strapi/blob/master/screenshot.png)
 
 ## Features
 - Minimal design 
