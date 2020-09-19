@@ -18,7 +18,7 @@ async function getAllBlogposts() {
   while (makeNewQuery) {
     try {
       // initiate fetch
-      const data = await fetch("http://localhost:1337/graphql", {
+      const data = await fetch("https://okaaaaaaayyy.herokuapp.com/graphql", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
